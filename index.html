@@ -364,6 +364,98 @@
                 </ul>
             </div>
         </section>
+
+        <section class="section" id="contact">
+            <div class="contact container">
+                <div class="contact__intro">
+                    <h2 class="section__title">Contact and Application</h2>
+                    <p class="text-muted">Send a message about the internship. Fields marked with * are required.</p>
+                    <p class="alert alert--info">This form has no server, so sending it only reloads the page.</p>
+                </div>
+
+                <form class="form" id="application-form">
+
+                    <fieldset class="form__group">
+                        <legend class="form__legend">Your details</legend>
+
+                        <div class="form__fields">
+                            <div class="form-field form-field--wide">
+                                <label class="form-field__label" for="program-name">Program</label>
+                                <input class="form-field__control" type="text" id="program-name" name="program_name" value="Bloomrix Web Development Internship" disabled>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="form-field__label" for="full-name">Full name</label>
+                                <input class="form-field__control" type="text" id="full-name" name="full_name" placeholder="Enter your full name" autocomplete="name" minlength="3" maxlength="50" pattern="[A-Za-z ]+" required>
+                                <span class="form-field__error">Use 3 to 50 letters and spaces.</span>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="form-field__label" for="email-address">Email address</label>
+                                <input class="form-field__control" type="email" id="email-address" name="email_address" placeholder="example@gmail.com" autocomplete="email" required>
+                                <span class="form-field__error">Enter an email address like name@example.com.</span>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="form-field__label" for="phone-number">Phone number</label>
+                                <input class="form-field__control" type="tel" id="phone-number" name="phone_number" placeholder="03001234567" autocomplete="tel" maxlength="11" pattern="[0-9]{11}" required>
+                                <span class="form-field__error">Enter exactly 11 digits.</span>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="form-field__label" for="portfolio-url">Portfolio website</label>
+                                <input class="form-field__control" type="url" id="portfolio-url" name="portfolio_url" placeholder="https://www.example.com" autocomplete="url">
+                                <span class="form-field__error">Enter a full address that starts with https://.</span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form__group">
+                        <legend class="form__legend">Your application</legend>
+
+                        <div class="form__fields">
+                            <div class="form-field">
+                                <label class="form-field__label" for="applied-position">Position</label>
+                                <select class="form-field__control" id="applied-position" name="applied_position" required>
+                                    <option value="" selected>-- Select a position --</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="software-testing">Software Testing</option>
+                                    <option value="devops">DevOps</option>
+                                    <option value="data-analysis">Data Analysis</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="form-field__label" for="start-date">Available start date</label>
+                                <input class="form-field__control" type="date" id="start-date" name="start_date" min="2026-11-02" max="2027-01-31" required>
+                            </div>
+
+                            <div class="form-field form-field--wide">
+                                <label class="form-field__label" for="resume-file">Resume (PDF, DOC or DOCX)</label>
+                                <input class="form-field__control" type="file" id="resume-file" name="resume_file" accept=".pdf,.doc,.docx" required>
+                            </div>
+
+                            <div class="form-field form-field--wide">
+                                <label class="form-field__label" for="application-message">Message</label>
+                                <textarea class="form-field__control" id="application-message" name="application_message" rows="5" placeholder="Tell us why you want to join" minlength="10" maxlength="300" required></textarea>
+                                <span class="form-field__error">Write 10 to 300 characters.</span>
+                            </div>
+
+                            <div class="form-field form-field--check form-field--wide">
+                                <input class="form-field__checkbox" type="checkbox" id="terms-accepted" name="terms_accepted" value="accepted" required>
+                                <label class="form-field__label" for="terms-accepted">I accept the terms and conditions</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form__actions">
+                        <button class="button button--primary" type="submit">Send application</button>
+                        <button class="button button--secondary" type="reset">Reset form</button>
+                    </div>
+
+                </form>
+            </div>
+        </section>
 </body>
 
 </html>
