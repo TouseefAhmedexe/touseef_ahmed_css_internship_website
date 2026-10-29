@@ -1046,3 +1046,62 @@
     }
 }
 
+
+@layer print {
+    @media print {
+        body {
+            background-color: white;
+            color: black;
+            font-size: 12pt;
+        }
+
+        .skip-link,
+        .site-header,
+        .hero__actions,
+        .hero__media,
+        #contact {
+            display: none;
+        }
+
+        .hero,
+        .section--alt,
+        .site-footer {
+            background: none;
+            color: black;
+        }
+
+        .section,
+        .hero {
+            padding-block: 1cm;
+        }
+
+        .card,
+        .roadmap__item,
+        .assignment-card,
+        .faq__item,
+        .data-table tr {
+            box-shadow: none;
+            break-inside: avoid;
+        }
+
+        .hero__eyebrow {
+            letter-spacing: normal;
+        }
+
+        a {
+            color: black;
+            text-decoration: underline;
+        }
+
+        a[href^="http"]::after {
+            content: " (" attr(href) ")";
+            font-size: 10pt;
+            word-break: break-all;
+        }
+    }
+}
+
+@page {
+    margin: 2cm;
+}
+
