@@ -17,7 +17,7 @@
         <div class="site-header__inner container">
             <a class="site-header__logo" href="#home">Touseef Ahmed</a>
 
-            <nav class="site-header__nav">
+            <nav class="site-header__nav" aria-label="Main Navigation">
                 <ul class="site-header__list">
                     <li><a class="site-header__link" href="#home">Home</a></li>
                     <li><a class="site-header__link" href="#about">About</a></li>
@@ -25,6 +25,7 @@
                     <li><a class="site-header__link" href="#training">Training</a></li>
                     <li><a class="site-header__link" href="#assignments">Assignments</a></li>
                     <li><a class="site-header__link" href="#contact">Contact</a></li>
+                    <li><a class="site-header__link" href="#faq">FAQ</a></li>
                 </ul>
             </nav>
         </div>
@@ -162,6 +163,7 @@
                 </div>
             </div>
         </section>
+
         <section class="section" id="training">
             <div class="container">
                 <h2 class="section__title">Training Roadmap</h2>
@@ -212,10 +214,10 @@
 
                         <thead>
                             <tr>
-                                <th>Task</th>
-                                <th>Topic</th>
-                                <th>Assignment</th>
-                                <th>Status</th>
+                                <th scope="col">Task</th>
+                                <th scope="col">Topic</th>
+                                <th scope="col">Assignment</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
 
@@ -291,8 +293,8 @@
                 <h2 class="section__title">Assignments</h2>
 
                 <div class="progress">
-                    <p class="progress__label">9 of 10 tasks completed</p>
-                    <div class="progress__bar progress__bar--90"></div>
+                    <p class="progress__label" id="progress-label">9 of 10 tasks completed</p>
+                    <div class="progress__bar progress__bar--90" role="progressbar" aria-labelledby="progress-label" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
 
                 <ul class="assignment-list">
@@ -303,7 +305,7 @@
                                 <span class="badge badge--completed">Completed</span>
                             </div>
                             <p class="assignment-card__text">The profile page from my HTML training, styled with an external stylesheet.</p>
-                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_profile_page" target="_blank">View repository</a>
+                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_profile_page" target="_blank" rel="noopener noreferrer">View repository</a>
                         </article>
                     </li>
 
@@ -314,7 +316,7 @@
                                 <span class="badge badge--completed">Completed</span>
                             </div>
                             <p class="assignment-card__text">A registration page built with the box model, floats, positioning and a styled table.</p>
-                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_registration_layout" target="_blank">View repository</a>
+                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_registration_layout" target="_blank" rel="noopener noreferrer">View repository</a>
                         </article>
                     </li>
 
@@ -325,7 +327,7 @@
                                 <span class="badge badge--completed">Completed</span>
                             </div>
                             <p class="assignment-card__text">A responsive course page with Flexbox, Grid and media queries.</p>
-                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_responsive_course_page" target="_blank">View repository</a>
+                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_responsive_course_page" target="_blank" rel="noopener noreferrer">View repository</a>
                         </article>
                     </li>
 
@@ -336,7 +338,7 @@
                                 <span class="badge badge--completed">Completed</span>
                             </div>
                             <p class="assignment-card__text">A dashboard with CSS variables, themes, cascade layers and container queries.</p>
-                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_internship_dashboard" target="_blank">View repository</a>
+                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_internship_dashboard" target="_blank" rel="noopener noreferrer">View repository</a>
                         </article>
                     </li>
 
@@ -347,7 +349,7 @@
                                 <span class="badge badge--in-progress">In Progress</span>
                             </div>
                             <p class="assignment-card__text">This website, built with HTML and CSS only.</p>
-                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_internship_website" target="_blank">View repository</a>
+                            <a class="assignment-card__link" href="https://github.com/TouseefAhmedexe/touseef_ahmed_css_internship_website" target="_blank" rel="noopener noreferrer">View repository</a>
                         </article>
                     </li>
 
@@ -372,7 +374,7 @@
                     <p class="alert alert--info">This form has no server, so sending it only reloads the page.</p>
                 </div>
 
-                <form class="form" id="application-form">
+                <form class="form" id="application-form" action="#" method="post">
 
                     <fieldset class="form__group">
                         <legend class="form__legend">Your details</legend>
@@ -422,16 +424,19 @@
                                     <option value="devops">DevOps</option>
                                     <option value="data-analysis">Data Analysis</option>
                                 </select>
+                                <span class="form-field__error">Please choose a position from the dropdown.</span>
                             </div>
 
                             <div class="form-field">
                                 <label class="form-field__label" for="start-date">Available start date</label>
                                 <input class="form-field__control" type="date" id="start-date" name="start_date" min="2026-11-02" max="2027-01-31" required>
+                                <span class="form-field__error">Please select a valid start date.</span>
                             </div>
 
                             <div class="form-field form-field--wide">
                                 <label class="form-field__label" for="resume-file">Resume (PDF, DOC or DOCX)</label>
                                 <input class="form-field__control" type="file" id="resume-file" name="resume_file" accept=".pdf,.doc,.docx" required>
+                                <span class="form-field__error">Please select a valid document file (.pdf, .doc, .docx).</span>
                             </div>
 
                             <div class="form-field form-field--wide">
@@ -443,6 +448,7 @@
                             <div class="form-field form-field--check form-field--wide">
                                 <input class="form-field__checkbox" type="checkbox" id="terms-accepted" name="terms_accepted" value="accepted" required>
                                 <label class="form-field__label" for="terms-accepted">I accept the terms and conditions</label>
+                                <span class="form-field__error">You must accept the terms and conditions to proceed.</span>
                             </div>
                         </div>
                     </fieldset>
@@ -519,8 +525,8 @@
             <div class="site-footer__area">
                 <h2 class="site-footer__title">Elsewhere</h2>
                 <ul class="site-footer__list">
-                    <li><a href="https://github.com/TouseefAhmedexe" target="_blank">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/touseefahmed503" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com/TouseefAhmedexe" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/touseefahmed503" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                 </ul>
             </div>
         </div>
