@@ -751,3 +751,174 @@
     }
 }
 
+
+@layer components {
+    .contact {
+        display: grid;
+        gap: var(--space-xl);
+        grid-template-columns: minmax(0, 1fr);
+
+        @media (min-width: 64rem) {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        }
+    }
+
+    .contact__intro {
+        align-content: start;
+        display: grid;
+        gap: var(--space-md);
+    }
+
+    .alert {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-primary);
+        border-inline-start-width: 6px;
+        border-radius: var(--radius-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .alert--info::before {
+        color: var(--color-primary);
+        content: "Note: ";
+        font-weight: bold;
+    }
+
+    .form {
+        display: grid;
+        gap: var(--space-lg);
+    }
+
+    .form__group {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        padding: var(--space-lg);
+    }
+
+    .form__legend {
+        color: var(--color-primary);
+        font-size: var(--font-size-lg);
+        font-weight: bold;
+        padding-inline: var(--space-xs);
+    }
+
+    .form__fields {
+        display: grid;
+        gap: var(--space-md);
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    }
+
+    .form__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+
+    .form-field {
+        align-content: start;
+        display: grid;
+        gap: var(--space-2xs);
+    }
+
+    .form-field--wide {
+        grid-column: 1 / -1;
+    }
+
+    .form-field--check {
+        align-items: center;
+        display: flex;
+        gap: var(--space-xs);
+    }
+
+    .form-field__label {
+        font-weight: bold;
+    }
+
+    .form-field:has(:required) .form-field__label::after {
+        color: var(--color-danger);
+        content: " *";
+    }
+
+    .form-field__control {
+        background-color: var(--color-surface);
+        border: 2px solid var(--color-border-strong);
+        border-radius: var(--radius-sm);
+        color: var(--color-text);
+        inline-size: 100%;
+        padding: 0.6em 0.8em;
+        resize: vertical;
+        transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+        &:enabled:hover {
+            border-color: var(--color-primary);
+        }
+
+        &:focus-visible {
+            background-color: var(--color-bg-alt);
+            border-color: var(--color-primary);
+        }
+
+        &:disabled {
+            background-color: var(--color-bg-alt);
+            border-style: dashed;
+            color: var(--color-text-muted);
+            cursor: not-allowed;
+        }
+
+        &::placeholder {
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+
+        &::file-selector-button {
+            background-color: var(--color-primary);
+            border: 0;
+            border-radius: var(--radius-sm);
+            color: var(--color-on-primary);
+            cursor: pointer;
+            margin-inline-end: var(--space-sm);
+            padding: 0.4em 0.9em;
+        }
+
+        /* Empty required fields are invalid from the start, so only style them after typing */
+        &[placeholder]:not(:placeholder-shown):invalid {
+            border-color: var(--color-danger);
+        }
+
+        &[placeholder]:not(:placeholder-shown):valid {
+            border-color: var(--color-success);
+        }
+    }
+
+    .form-field__checkbox {
+        block-size: 1.25rem;
+        cursor: pointer;
+        inline-size: 1.25rem;
+    }
+
+    .form-field--check:has(:checked) .form-field__label {
+        color: var(--color-success);
+    }
+
+    .form-field__error {
+        color: var(--color-danger);
+        display: none;
+        font-size: var(--font-size-sm);
+        font-weight: bold;
+
+        &::before {
+            content: "\26A0  ";
+        }
+    }
+
+    .form-field:has(.form-field__control[placeholder]:not(:placeholder-shown):invalid) .form-field__error {
+        display: block;
+    }
+
+    .form-field:has(.form-field__control[placeholder]:not(:placeholder-shown):valid) .form-field__label::before {
+        color: var(--color-success);
+        content: "\2713  ";
+    }
+}
+
