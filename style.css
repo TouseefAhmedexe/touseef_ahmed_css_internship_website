@@ -1018,3 +1018,10 @@
     }
 }
 
+
+@layer utilities {
+    .text-muted {
+        color: var(--color-text-muted);
+    }
+}
+
