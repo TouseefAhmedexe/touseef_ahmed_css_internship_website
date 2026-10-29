@@ -176,3 +176,30 @@
     }
 }
 
+
+@layer layout {
+    .container {
+        inline-size: min(100% - 2 * var(--space-gutter), var(--width-content));
+        margin-inline: auto;
+    }
+
+    .section {
+        padding-block: var(--space-section);
+    }
+
+    .section--alt {
+        background-color: var(--color-bg-alt);
+    }
+
+    .section__title {
+        border-block-end: 3px solid var(--color-primary);
+        color: var(--color-primary-strong);
+        margin-block-end: var(--space-lg);
+        padding-block-end: var(--space-xs);
+    }
+
+    .section__subtitle {
+        margin-block: var(--space-xl) var(--space-md);
+    }
+}
+
