@@ -203,3 +203,114 @@
     }
 }
 
+
+@layer components {
+    .skip-link {
+        background-color: var(--color-primary);
+        border-end-end-radius: var(--radius-sm);
+        color: var(--color-on-primary);
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        padding: var(--space-xs) var(--space-md);
+        position: absolute;
+        transform: translateY(-120%);
+        transition: transform 0.2s ease-in-out;
+        z-index: 20;
+
+        &:focus-visible {
+            transform: translateY(0);
+        }
+    }
+
+    .site-header {
+        background: linear-gradient(135deg, var(--hero-start), var(--hero-end));
+        color: white;
+        padding-block: var(--space-sm);
+
+        @media (min-width: 64rem) {
+            inset-block-start: 0;
+            position: sticky;
+            z-index: 10;
+        }
+    }
+
+    .site-header__inner {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+
+        @media (min-width: 48rem) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .site-header__logo {
+        align-items: center;
+        color: white;
+        display: inline-flex;
+        font-size: 1.25rem;
+        font-weight: bold;
+        gap: var(--space-xs);
+        text-decoration: none;
+
+        &::before {
+            background-color: white;
+            border-radius: var(--radius-sm);
+            color: var(--hero-start);
+            content: "</>";
+            font-size: 0.85rem;
+            padding: 0.15rem 0.4rem;
+        }
+    }
+
+    .site-header__nav {
+        @media (min-width: 48rem) {
+            flex: 1;
+        }
+    }
+
+    .site-header__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2xs);
+        justify-content: center;
+
+        @media (min-width: 48rem) {
+            justify-content: flex-end;
+        }
+    }
+
+    .site-header__link {
+        border-radius: var(--radius-sm);
+        color: white;
+        display: block;
+        padding: var(--space-xs) 0.7rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+    /* The active link follows the section in the address bar. With no section, Home is active */
+    body:not(:has(:target)) .site-header__link[href="#home"],
+    body:has(#home:target) .site-header__link[href="#home"],
+    body:has(#about:target) .site-header__link[href="#about"],
+    body:has(#skills:target) .site-header__link[href="#skills"],
+    body:has(#training:target) .site-header__link[href="#training"],
+    body:has(#assignments:target) .site-header__link[href="#assignments"],
+    body:has(#contact:target) .site-header__link[href="#contact"] {
+        background-color: white;
+        color: var(--hero-start);
+        font-weight: bold;
+    }
+}
+
