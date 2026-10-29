@@ -41,3 +41,138 @@
     }
 }
 
+
+@layer base {
+    :root {
+        --color-bg: #f3f6fb;
+        --color-bg-alt: #e8eef9;
+        --color-surface: #ffffff;
+        --color-text: #1b2733;
+        --color-text-muted: #4b5a69;
+        --color-primary: #1b4db3;
+        --color-primary-strong: #0f2f73;
+        --color-on-primary: #ffffff;
+        --color-accent: #b45309;
+        --color-focus: #b45309;
+        --color-border: #c5d0e3;
+        --color-border-strong: #6b7c93;
+        --color-success: #1a6b35;
+        --color-warning: #8a4a00;
+        --color-danger: #b3261e;
+        --color-link-visited: #6a3fb5;
+        --color-link-hover: #a33a0a;
+        --hero-start: #0f2f73;
+        --hero-end: #2557c7;
+
+        --space-2xs: 0.25rem;
+        --space-xs: 0.5rem;
+        --space-sm: 0.75rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2.5rem;
+        --space-section: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+        --space-gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
+
+        --font-body: Arial, Helvetica, sans-serif;
+        --font-size-sm: 0.875rem;
+        --font-size-base: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-h3: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+        --font-size-h2: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+        --font-size-h1: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+
+        --radius-sm: 6px;
+        --radius-md: 12px;
+        --radius-pill: 999px;
+
+        --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.15);
+        --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.2);
+
+        --width-content: 72rem;
+    }
+
+    @media screen and (prefers-color-scheme: dark) {
+        :root {
+            --color-bg: #0f1722;
+            --color-bg-alt: #131d2b;
+            --color-surface: #17212f;
+            --color-text: #e6edf5;
+            --color-text-muted: #a8b5c4;
+            --color-primary: #7aa7ff;
+            --color-primary-strong: #a9c4ff;
+            --color-on-primary: #0b1220;
+            --color-accent: #fbbf24;
+            --color-focus: #fbbf24;
+            --color-border: #33445c;
+            --color-border-strong: #7f93ad;
+            --color-success: #4ade80;
+            --color-warning: #fbbf24;
+            --color-danger: #f87171;
+            --color-link-visited: #c4a8ff;
+            --color-link-hover: #fbbf24;
+            --hero-start: #0b1b3f;
+            --hero-end: #1b3f8f;
+        }
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: var(--font-body);
+        font-size: var(--font-size-base);
+        line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3 {
+        line-height: 1.2;
+    }
+
+    h1 {
+        font-size: var(--font-size-h1);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2);
+    }
+
+    h3 {
+        font-size: var(--font-size-h3);
+    }
+
+    :where(section[id]) {
+        scroll-margin-top: 5rem;
+    }
+
+    a:link {
+        color: var(--color-primary);
+    }
+
+    a:visited {
+        color: var(--color-link-visited);
+    }
+
+    a:hover {
+        color: var(--color-link-hover);
+    }
+
+    a:active {
+        color: var(--color-danger);
+    }
+
+    :is(a, button, input, select, textarea, summary):focus-visible {
+        outline: 3px solid var(--color-focus);
+        outline-offset: 3px;
+    }
+
+    ::selection {
+        background-color: #ffd54f;
+        color: #1b2733;
+    }
+}
+
